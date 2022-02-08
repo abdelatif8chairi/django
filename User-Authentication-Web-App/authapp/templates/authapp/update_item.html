@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}model_form_upload{% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+    <!-- Create a Form -->
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+
+        <!-- form as paragraph -->
+        {{ orders.as_p }}
+        <a href="{% url 'authapp:dashboard' %}">
+        <input class="btn btn-success" type="submit" value="Update" >
+            </a>
+    </form>
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'authapp:dashboard' %}" target="_blank">Return</a></div>
+    </div>
+</div>
+
+{% endblock %}
+
